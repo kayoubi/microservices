@@ -12,6 +12,9 @@ public class Import {
     private String name;
     private List<Column> columns;
 
+    public Import() {
+    }
+
     public Import(int id, String name, List<Column> columns) {
         this.id = id;
         this.name = name;

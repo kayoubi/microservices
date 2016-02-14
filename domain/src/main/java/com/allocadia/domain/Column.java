@@ -4,15 +4,18 @@ package com.allocadia.domain;
  * @author Khaled Ayoubi
  */
 public class Column {
+    private int id;
+    private String name;
+    private String type;
+
+    public Column() {
+    }
+
     public Column(int id, String name, String type) {
         this.id = id;
         this.name = name;
         this.type = type;
     }
-
-    private int id;
-    private String name;
-    private String type;
 
     public int getId() {
         return id;
