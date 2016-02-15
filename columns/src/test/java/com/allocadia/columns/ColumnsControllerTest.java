@@ -39,7 +39,7 @@ public class ColumnsControllerTest {
     protected MockMvc mockMvc;
 
     @Rule
-    public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/test-classes/generated-snippets");
+    public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/test-classes/generated-snippets/mappings");
 
     @Before
     public void before() {
@@ -49,8 +49,8 @@ public class ColumnsControllerTest {
                 .withTemplateFormat(JsonTemplateFormat.format())
 //                .withTemplateFormat(TemplateFormats.asciidoctor())
                 .withDefaults(
-                    wiremock(),
-                    httpResponse()
+                    wiremock()
+//                    httpResponse()
                 )
             )
             .build();
@@ -62,11 +62,11 @@ public class ColumnsControllerTest {
         this.mockMvc.perform(get("/"))
             .andExpect(status().isOk())
             .andDo(print())
-            .andDo(document("index",
-                responseFields(
-                    fieldWithPath("[]").description("array of columns"),
-                    fieldWithPath("[].id").description("id of a column")
-                )));
+            .andDo(document("index"));//,
+//                responseFields(
+//                    fieldWithPath("[]").description("array of columns"),
+//                    fieldWithPath("[].id").description("id of a column")
+//                )));
     }
 
     @Test
