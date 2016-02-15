@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.allocadia.importer.domain.Import;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import static org.hamcrest.Matchers.is;
@@ -30,9 +31,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ImporterApplication.class)
 @WebIntegrationTest(randomPort = true)
-public class ImporterControllerIT {
+public class ImporterControllerTest {
     @Rule
-    public WireMockRule wm = new WireMockRule(8181);
+    public WireMockRule wm = new WireMockRule(
+        WireMockConfiguration.wireMockConfig().port(8181).usingFilesUnderClasspath("generated-snippets"));
 
 //    @Mock
 //    private ImportService importService;
