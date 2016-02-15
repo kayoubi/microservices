@@ -39,7 +39,7 @@ public class ColumnsControllerTest {
     protected MockMvc mockMvc;
 
     @Rule
-    public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/generated-snippets");
+    public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/test-classes/generated-snippets");
 
     @Before
     public void before() {
